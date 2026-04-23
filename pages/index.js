@@ -125,6 +125,7 @@ export default function PrimeMCADataWebsite() {
         'Basic support included',
       ],
       featured: false,
+      buttonText: 'Start with Aged Leads',
       link: 'https://buy.stripe.com/eVq5kv4dh6cm1cidts33W00',
     },
     {
@@ -139,6 +140,8 @@ export default function PrimeMCADataWebsite() {
         'Most popular plan',
       ],
       featured: true,
+      badge: 'Most Popular',
+      buttonText: 'Start with Fresh Leads',
       link: 'https://buy.stripe.com/4gM00bh03fMW9IO4WW33W01',
     },
     {
@@ -153,57 +156,62 @@ export default function PrimeMCADataWebsite() {
         'Priority support',
       ],
       featured: false,
+      buttonText: 'Start with Mixed Leads',
       link: 'https://buy.stripe.com/8x25kvh03asC3kq9dc33W02',
     },
   ];
 
-  const bulkPackages = [
+  const bulkProducts = [
     {
       name: '15,000 Aged MCA Leads (Bulk)',
       price: '$1,005.00',
       subtitle: 'USD one-time purchase',
-      items: [
+      details: [
         '15,000 aged MCA records',
         'Bulk one-time order',
         'CSV delivery included',
         'Best for high-volume outreach',
       ],
+      buttonText: 'Buy 15,000 Records',
       link: 'https://buy.stripe.com/cNieV5bFJ44ebQW1KK33W03',
     },
     {
       name: '10,000 Fresh MCA Leads (Bulk)',
       price: '$1,400.00',
       subtitle: 'USD one-time purchase',
-      items: [
+      details: [
         '10,000 fresh MCA records',
         'Recent inquiry data',
         'CSV delivery included',
         'High-intent data set',
       ],
+      buttonText: 'Buy 10,000 Records',
       link: 'https://buy.stripe.com/dRm6oz259asC6wC61033W05',
     },
     {
       name: '10,000 Aged MCA Submissions',
       price: '$4,000.00',
       subtitle: 'USD one-time purchase',
-      items: [
+      details: [
         '10,000 aged submission records',
         'Higher data depth',
         'Built for experienced teams',
         'One-time order',
       ],
+      buttonText: 'Buy 10,000 Leads',
       link: 'https://buy.stripe.com/6oU6oz5hleIS5sydts33W06',
     },
     {
       name: '500 Full MCA Submissions',
       price: '$2,200.00',
       subtitle: 'USD one-time purchase',
-      items: [
+      details: [
         '500 full MCA submissions',
         'Premium lead quality',
         'Built for closers',
         'One-time order',
       ],
+      buttonText: 'Buy 500 Leads',
       link: 'https://buy.stripe.com/00w3cndNRasCf38gFE33W07',
     },
   ];
@@ -235,7 +243,7 @@ export default function PrimeMCADataWebsite() {
       name: 'A. Reynolds',
       role: 'ISO Sales Manager',
       quote:
-        'The site makes the offer feel premium right away. Buyers understand the lead types fast, and the checkout flow is cleaner than most MCA lead sites.',
+        'The site makes the offer feel premium right away. Buyers understand the lead types fast, and the checkout flow is much cleaner than most MCA lead sites.',
     },
     {
       name: 'D. Carter',
@@ -554,16 +562,17 @@ export default function PrimeMCADataWebsite() {
               >
                 {pkg.featured && (
                   <div className="mb-4 inline-flex rounded-full bg-emerald-400 px-3 py-1 text-sm font-semibold text-slate-950">
-                    Most Popular
+                    {pkg.badge || 'Most Popular'}
                   </div>
                 )}
                 <h3 className="text-2xl font-bold">{pkg.name}</h3>
                 <div className="mt-4 text-4xl font-black">{pkg.price}</div>
+                <div className="mt-1 text-lg text-slate-400">{pkg.suffix}</div>
                 <p className="mt-3 text-slate-300">{pkg.description}</p>
                 <ul className="mt-6 space-y-3 text-sm text-slate-200">
                   {pkg.items.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-300" />
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-300" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -578,7 +587,7 @@ export default function PrimeMCADataWebsite() {
                       : 'border border-white/10 bg-white/5 text-white hover:bg-white/10'
                   }`}
                 >
-                  Buy Now
+                  {pkg.buttonText}
                 </a>
               </div>
             ))}
@@ -599,7 +608,7 @@ export default function PrimeMCADataWebsite() {
                   <ul className="mt-5 space-y-3 text-sm text-slate-200">
                     {item.details.map((detail) => (
                       <li key={detail} className="flex items-start gap-3">
-                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-300" />
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 text-emerald-300" />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -610,7 +619,7 @@ export default function PrimeMCADataWebsite() {
                     rel="noopener noreferrer"
                     className="mt-8 block w-full rounded-2xl bg-white px-5 py-4 text-center font-semibold text-slate-950 transition hover:-translate-y-0.5"
                   >
-                    Buy Bulk Package
+                    {item.buttonText}
                   </a>
                 </div>
               ))}
