@@ -152,7 +152,7 @@ export default function PrimeMCADataWebsite() {
       description:
         'Cost-efficient data for reactivation campaigns, dialer campaigns, SMS/email nurture, and broader list volume.',
       points: ['Lower cost per record', 'Great for volume buyers', 'Ideal for retargeting'],
-      icon: Layers3,
+      icon: Layers,
     },
     {
       title: 'Full Submission Leads',
