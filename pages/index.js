@@ -16,7 +16,7 @@ export default function PrimeMCADataWebsite() {
     legal: 'PrimeMCAData, Inc.',
     website: 'primemcadata.com',
     phone: '712-340-0326',
-    email: 'sales@primemcadata.com',
+    email: 'Primemcadata@gmail.com',
   };
 
   const [form, setForm] = useState({
