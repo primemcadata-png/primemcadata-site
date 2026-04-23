@@ -11,7 +11,7 @@ import {
   Sparkles,
   Building2,
   Target,
-  Layers3,
+  Layers,
   BarChart3,
   Clock3,
   FileSpreadsheet,
