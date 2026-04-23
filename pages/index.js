@@ -1,8 +1,16 @@
 import { useMemo, useState } from 'react';
-import { Globe, Mail, Phone, ShieldCheck, Database, BadgeCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import {
+  Globe,
+  Mail,
+  Phone,
+  ShieldCheck,
+  Database,
+  BadgeCheck,
+  ArrowRight,
+  CheckCircle2,
+} from 'lucide-react';
 
 export default function PrimeMCADataWebsite() {
-  const [selectedPackage, setSelectedPackage] = useState('Growth Package');
   const brand = {
     company: 'PrimeMCAData',
     legal: 'PrimeMCAData, Inc.',
@@ -10,6 +18,7 @@ export default function PrimeMCADataWebsite() {
     phone: '712-340-0326',
     email: 'sales@primemcadata.com',
   };
+
   const [form, setForm] = useState({
     name: '',
     company: '',
@@ -62,7 +71,7 @@ export default function PrimeMCADataWebsite() {
     'SSL Secure Website',
     'CRM-Ready Data',
     'Built for Brokers & Funders',
-    'Custom Quote Support',
+    'Instant Checkout Available',
   ];
 
   const trustIcons = [
@@ -76,52 +85,126 @@ export default function PrimeMCADataWebsite() {
     'State, industry, revenue, and funding-amount targeting',
     'CSV / spreadsheet delivery for fast upload into dialers and CRMs',
     'Premium positioning for recurring buyers and custom volume deals',
-    'Lead samples and quote request flow for qualified buyers',
-    'Designed to support one-time orders and long-term buying relationships',
+    'Monthly subscriptions and one-time bulk packages',
+    'Direct Stripe checkout links for instant payment',
   ];
 
   const process = [
     {
-      title: 'Tell us your buyer criteria',
+      title: 'Choose your package',
       description:
-        'Share the states, industries, lead types, and volumes your team wants to work so we can build the right package.',
+        'Start with a monthly plan or select a one-time bulk package based on your outreach goals and budget.',
     },
     {
-      title: 'We match the inventory',
+      title: 'Pay instantly',
       description:
-        'Choose from fresh leads, aged leads, full submissions, and bank statement files based on your goals and sales model.',
+        'Click the checkout button and complete payment securely through Stripe.',
     },
     {
-      title: 'Receive a quote or sample',
-      description:
-        'Qualified buyers can request pricing, volume details, and sample data previews before placing an order.',
-    },
-    {
-      title: 'Import and start closing',
+      title: 'Receive your data',
       description:
         'Your data is delivered in a clean format that is ready for your CRM, outreach stack, and underwriting workflow.',
     },
+    {
+      title: 'Scale your deal flow',
+      description:
+        'Reorder monthly supply or purchase larger data packages as your team grows.',
+    },
   ];
 
-  const packages = [
+  const monthlyPackages = [
     {
-      name: 'Starter Volume',
-      price: '$299+',
-      description: 'For smaller teams testing aged data or building reactivation campaigns.',
-      items: ['Entry-level order size', 'CSV delivery', 'Great for nurture campaigns'],
+      name: 'Starter - Aged MCA Leads',
+      price: '$300.00',
+      suffix: 'USD / month',
+      description: 'Great for testing premium aged MCA leads with low monthly commitment.',
+      items: [
+        '2,000 aged MCA records per month',
+        '31–180 day inquiry age',
+        'CSV delivery included',
+        'Basic support included',
+      ],
+      featured: false,
+      link: 'https://buy.stripe.com/eVq5kv4dh6cm1cidts33W00',
     },
     {
-      name: 'Growth Package',
-      price: '$499+',
-      description: 'For teams that want stronger intent, fresher records, and better speed-to-lead.',
-      items: ['Fresh lead focus', 'Targeting options', 'Built for outbound sales teams'],
+      name: 'Growth - Fresh MCA Leads',
+      price: '$375.00',
+      suffix: 'USD / month',
+      description: 'Fresh MCA leads sourced from recent funding inquiries.',
+      items: [
+        '1,250 fresh MCA records per month',
+        'Recent funding inquiries',
+        'CSV delivery included',
+        'Most popular plan',
+      ],
       featured: true,
+      link: 'https://buy.stripe.com/4gM00bh03fMW9IO4WW33W01',
     },
     {
-      name: 'Premium Buyer',
-      price: 'Custom',
-      description: 'For full submissions, bank statement leads, exclusive drops, and repeat buyers.',
-      items: ['High-intent inventory', 'Custom volume plans', 'Priority quote handling'],
+      name: 'Professional - Mixed MCA Leads',
+      price: '$999.00',
+      suffix: 'USD / month',
+      description: 'Best for buyers needing a stronger mix of fresh and aged data.',
+      items: [
+        'Mixed lead inventory',
+        'Built for scaling teams',
+        'Better data blend',
+        'Priority support',
+      ],
+      featured: false,
+      link: 'https://buy.stripe.com/8x25kvh03asC3kq9dc33W02',
+    },
+  ];
+
+  const bulkPackages = [
+    {
+      name: '15,000 Aged MCA Leads (Bulk)',
+      price: '$1,005.00',
+      subtitle: 'USD one-time purchase',
+      items: [
+        '15,000 aged MCA records',
+        'Bulk one-time order',
+        'CSV delivery included',
+        'Best for high-volume outreach',
+      ],
+      link: 'https://buy.stripe.com/cNieV5bFJ44ebQW1KK33W03',
+    },
+    {
+      name: '10,000 Fresh MCA Leads (Bulk)',
+      price: '$1,400.00',
+      subtitle: 'USD one-time purchase',
+      items: [
+        '10,000 fresh MCA records',
+        'Recent inquiry data',
+        'CSV delivery included',
+        'High-intent data set',
+      ],
+      link: 'https://buy.stripe.com/dRm6oz259asC6wC61033W05',
+    },
+    {
+      name: '10,000 Aged MCA Submissions',
+      price: '$4,000.00',
+      subtitle: 'USD one-time purchase',
+      items: [
+        '10,000 aged submission records',
+        'Higher data depth',
+        'Built for experienced teams',
+        'One-time order',
+      ],
+      link: 'https://buy.stripe.com/6oU6oz5hleIS5sydts33W06',
+    },
+    {
+      name: '500 Full MCA Submissions',
+      price: '$2,200.00',
+      subtitle: 'USD one-time purchase',
+      items: [
+        '500 full MCA submissions',
+        'Premium lead quality',
+        'Built for closers',
+        'One-time order',
+      ],
+      link: 'https://buy.stripe.com/00w3cndNRasCf38gFE33W07',
     },
   ];
 
@@ -152,13 +235,13 @@ export default function PrimeMCADataWebsite() {
       name: 'A. Reynolds',
       role: 'ISO Sales Manager',
       quote:
-        'The site makes the offer feel premium right away. Buyers understand the lead types fast, and the quote flow is much cleaner than most MCA lead sites.',
+        'The site makes the offer feel premium right away. Buyers understand the lead types fast, and the checkout flow is cleaner than most MCA lead sites.',
     },
     {
       name: 'D. Carter',
       role: 'Funding Shop Owner',
       quote:
-        'Having fresh, aged, and statement-based options clearly separated helps serious buyers move quicker and ask better questions from the start.',
+        'Having monthly packages and bulk data options clearly separated helps serious buyers move quicker and ask better questions.',
     },
     {
       name: 'M. Patel',
@@ -174,8 +257,8 @@ export default function PrimeMCADataWebsite() {
       description: 'Explain the difference between fresh leads, aged leads, full submissions, and bank statement files.',
     },
     {
-      title: 'Lead Pricing & Custom Quotes',
-      description: 'Break down how pricing varies by volume, freshness, targeting, and data depth.',
+      title: 'Monthly Plans vs Bulk Data',
+      description: 'Help buyers choose between recurring monthly supply and one-time large orders.',
     },
     {
       title: 'Who These Leads Are Best For',
@@ -189,32 +272,34 @@ export default function PrimeMCADataWebsite() {
       a: 'The main categories are Fresh MCA Leads, Aged MCA Leads, Full Submission Leads, and Bank Statement Leads.',
     },
     {
-      q: 'Can buyers request targeting filters?',
-      a: 'Yes. Orders can be customized by state, industry, revenue profile, volume, and general business criteria depending on availability.',
+      q: 'Are the monthly plans subscriptions?',
+      a: 'Yes. The monthly plans are recurring subscriptions billed each month.',
+    },
+    {
+      q: 'Are the bulk packages one-time payments?',
+      a: 'Yes. Bulk packages are one-time purchases and do not recur monthly.',
     },
     {
       q: 'How are the files delivered?',
-      a: 'The site positions delivery in clean CSV or spreadsheet-ready formats so buyers can upload into CRMs, dialers, and sales workflows.',
+      a: 'Orders are delivered in clean CSV or spreadsheet-ready formats for CRM and dialer use.',
     },
     {
-      q: 'Can this site support recurring lead buyers?',
-      a: 'Yes. The layout is designed for one-time buyers, repeat monthly buyers, and teams looking for custom quote workflows.',
-    },
-    {
-      q: 'Can we add instant checkout later?',
-      a: 'Yes. Stripe, GoHighLevel forms, embedded checkout, or custom order flows can all be added to this design later.',
+      q: 'Do you offer custom quotes?',
+      a: 'Yes. Use the custom quote section for state targeting, industry targeting, volume changes, or specialty data requests.',
     },
   ];
 
   const seoParagraphs = useMemo(
     () => [
       'PrimeMCAData is positioned as a premium source for merchant cash advance leads for brokers, funders, and sales teams looking for better buying options. The site is structured around high-intent MCA lead categories including fresh MCA leads, aged MCA leads, full submission leads, and bank statement leads.',
-      'This website is built to rank and convert around terms buyers already search for, including merchant cash advance leads, MCA lead pricing, MCA bank statement leads, aged MCA leads, and fresh merchant cash advance data. The goal is to capture ready-to-buy traffic while making the offer look more trustworthy and premium than typical lead marketplace sites.',
+      'This website is built to rank and convert around terms buyers already search for, including merchant cash advance leads, MCA lead pricing, MCA bank statement leads, aged MCA leads, and fresh merchant cash advance data.',
     ],
     []
   );
 
   const handleChange = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
+
+  const quoteMailto = `mailto:${brand.email}?subject=PrimeMCAData Custom Quote Request`;
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -260,10 +345,10 @@ export default function PrimeMCADataWebsite() {
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="#contact"
+                  href="#pricing"
                   className="rounded-2xl bg-emerald-400 px-6 py-4 text-center font-semibold text-slate-950 shadow-2xl shadow-emerald-500/20 transition hover:-translate-y-0.5"
                 >
-                  Get Pricing & Sample Data
+                  View Pricing & Checkout
                 </a>
                 <a
                   href="#lead-types"
@@ -451,17 +536,21 @@ export default function PrimeMCADataWebsite() {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="text-center">
             <div className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">Pricing & Packages</div>
-            <h2 className="mt-3 text-3xl font-black tracking-tight md:text-5xl">Start with a package, then customize from there.</h2>
+            <h2 className="mt-3 text-3xl font-black tracking-tight md:text-5xl">Choose a monthly plan or buy bulk packages.</h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-300">
-              These are polished placeholders for now. Later we can wire them into real checkout buttons, Stripe links, or GoHighLevel forms.
+              Monthly plans are subscriptions. Bulk data products are one-time purchases.
             </p>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {packages.map((pkg) => (
+            {monthlyPackages.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`rounded-[28px] border p-7 ${pkg.featured ? 'border-emerald-400/40 bg-emerald-400/10 shadow-2xl shadow-emerald-500/10' : 'border-white/10 bg-white/[0.04]'}`}
+                className={`rounded-[28px] border p-7 ${
+                  pkg.featured
+                    ? 'border-emerald-400/40 bg-emerald-400/10 shadow-2xl shadow-emerald-500/10'
+                    : 'border-white/10 bg-white/[0.04]'
+                }`}
               >
                 {pkg.featured && (
                   <div className="mb-4 inline-flex rounded-full bg-emerald-400 px-3 py-1 text-sm font-semibold text-slate-950">
@@ -479,14 +568,66 @@ export default function PrimeMCADataWebsite() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => setSelectedPackage(pkg.name)}
-                  className={`mt-8 w-full rounded-2xl px-5 py-4 font-semibold transition ${pkg.featured ? 'bg-emerald-400 text-slate-950 hover:-translate-y-0.5' : 'border border-white/10 bg-white/5 text-white hover:bg-white/10'}`}
+                <a
+                  href={pkg.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-8 block w-full rounded-2xl px-5 py-4 text-center font-semibold transition ${
+                    pkg.featured
+                      ? 'bg-emerald-400 text-slate-950 hover:-translate-y-0.5'
+                      : 'border border-white/10 bg-white/5 text-white hover:bg-white/10'
+                  }`}
                 >
-                  Select {pkg.name}
-                </button>
+                  Buy Now
+                </a>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16">
+            <div className="text-center">
+              <div className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-300">Bulk Packages</div>
+              <h3 className="mt-3 text-3xl font-black tracking-tight md:text-4xl">One-time data purchases.</h3>
+            </div>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+              {bulkProducts.map((item) => (
+                <div key={item.name} className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6">
+                  <div className="text-sm uppercase tracking-[0.2em] text-slate-400">{item.subtitle}</div>
+                  <div className="mt-3 text-xl font-bold">{item.name}</div>
+                  <div className="mt-4 text-3xl font-black">{item.price}</div>
+                  <ul className="mt-5 space-y-3 text-sm text-slate-200">
+                    {item.details.map((detail) => (
+                      <li key={detail} className="flex items-start gap-3">
+                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-300" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 block w-full rounded-2xl bg-white px-5 py-4 text-center font-semibold text-slate-950 transition hover:-translate-y-0.5"
+                  >
+                    Buy Bulk Package
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 rounded-[28px] border border-dashed border-emerald-400/30 bg-emerald-400/5 p-6 text-center">
+            <div className="text-xl font-bold">Need custom targeting or volume?</div>
+            <p className="mt-3 text-slate-300">
+              For state filters, industry targeting, revenue thresholds, exclusives, or custom volume, request a direct quote.
+            </p>
+            <a
+              href={quoteMailto}
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-6 py-4 font-semibold text-slate-950 transition hover:-translate-y-0.5"
+            >
+              Request Custom Quote <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
@@ -537,23 +678,31 @@ export default function PrimeMCADataWebsite() {
             <div className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-200">Primary CTA</div>
             <h2 className="mt-3 text-3xl font-black tracking-tight md:text-5xl">Get pricing, request samples, and start your next order.</h2>
             <p className="mt-5 max-w-2xl text-lg text-slate-200">
-              This section is ready to become your main lead capture point. Right now it’s a styled front-end form. Later we can connect it to GoHighLevel, email, Stripe, Zapier, or a live CRM workflow.
+              Use the monthly plans or bulk packages above for instant checkout, or request a custom quote for targeted data orders.
             </p>
 
             <div className="mt-8 rounded-[28px] border border-white/10 bg-slate-950/60 p-6 backdrop-blur">
-              <div className="text-sm text-slate-400">Selected package</div>
-              <div className="mt-2 text-2xl font-bold">{selectedPackage}</div>
+              <div className="text-sm text-slate-400">Best starting option</div>
+              <div className="mt-2 text-2xl font-bold">Growth - Fresh MCA Leads</div>
               <div className="mt-6 space-y-3 text-sm text-slate-300">
-                <div>• Request custom quote options</div>
-                <div>• Ask for sample lead previews</div>
-                <div>• Discuss volume, targeting, and repeat orders</div>
+                <div>• Most popular monthly package</div>
+                <div>• Fresh recent lead flow</div>
+                <div>• Best for active sales teams</div>
               </div>
+              <a
+                href="https://buy.stripe.com/4gM00bh03fMW9IO4WW33W01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-5 py-4 font-semibold text-slate-950 transition hover:-translate-y-0.5"
+              >
+                Start With Growth <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
           <div className="rounded-[32px] border border-white/10 bg-white/[0.04] p-8">
             <div className="text-2xl font-black">Request Pricing & Sample Data</div>
-            <div className="mt-2 text-slate-300">Use this form as the base for your real contact or quote flow.</div>
+            <div className="mt-2 text-slate-300">Use this section for custom quotes, targeting, and larger volume requests.</div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <input value={form.name} onChange={(e) => handleChange('name', e.target.value)} placeholder="Full name" className="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none placeholder:text-slate-500" />
@@ -566,37 +715,43 @@ export default function PrimeMCADataWebsite() {
                 ))}
               </select>
               <select value={form.volume} onChange={(e) => handleChange('volume', e.target.value)} className="rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none md:col-span-1">
-                {['500+', '1,000+', '2,000+', '5,000+', 'Custom Volume'].map((option) => (
+                {['500+', '1,000+', '2,000+', '5,000+', '10,000+', '15,000+', 'Custom Volume'].map((option) => (
                   <option key={option} value={option}>{option}</option>
                 ))}
               </select>
               <textarea value={form.message} onChange={(e) => handleChange('message', e.target.value)} placeholder="Tell us what you want: states, industries, lead freshness, budget, exclusivity, or bank statement needs." className="min-h-[140px] rounded-2xl border border-white/10 bg-slate-900 px-4 py-4 text-white outline-none placeholder:text-slate-500 md:col-span-2" />
             </div>
 
-            <button className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-5 py-4 font-semibold text-slate-950 transition hover:-translate-y-0.5">
-              Submit Quote Request <ArrowRight className="h-4 w-4" />
-            </button>
+            <a
+              href={quoteMailto}
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-5 py-4 font-semibold text-slate-950 transition hover:-translate-y-0.5"
+            >
+              Request Custom Quote <ArrowRight className="h-4 w-4" />
+            </a>
             <div className="mt-3 text-sm text-slate-400">
-              Placeholder front-end form only. Connect this to GoHighLevel, your inbox, Zapier, or Stripe next.
+              For custom targeting and quote requests, email us directly and mention your volume, lead type, and targeting criteria.
             </div>
 
             <div className="mt-8 rounded-2xl border border-dashed border-emerald-400/30 bg-emerald-400/5 p-5">
-              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">GoHighLevel Embed Area</div>
+              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Instant Checkout Available</div>
               <div className="mt-3 text-slate-300">
-                Replace this card with your GoHighLevel form embed, calendar widget, or funnel form code.
-              </div>
-              <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/80 p-4 font-mono text-xs text-slate-400">
-                {'<div id="ghl-form-embed">Paste your GoHighLevel form embed here</div>'}
+                Monthly subscriptions and bulk packages above are live with Stripe checkout now.
               </div>
             </div>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <button className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-semibold text-white transition hover:bg-white/10">
+              <a
+                href="#pricing"
+                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center text-sm font-semibold text-white transition hover:bg-white/10"
+              >
                 Buy Leads Now
-              </button>
-              <button className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-4 text-sm font-semibold text-emerald-200 transition hover:bg-emerald-400/15">
+              </a>
+              <a
+                href={quoteMailto}
+                className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-4 text-center text-sm font-semibold text-emerald-200 transition hover:bg-emerald-400/15"
+              >
                 Book Sales Call
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -624,11 +779,11 @@ export default function PrimeMCADataWebsite() {
             <div className="rounded-2xl border border-white/10 bg-slate-900/70 p-6">
               <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Checkout Path</div>
               <div className="mt-3 text-2xl font-black">Direct order buttons</div>
-              <p className="mt-3 text-slate-300">Add Stripe payment links or checkout buttons here for aged lead packs, fresh lead packs, or custom invoices.</p>
+              <p className="mt-3 text-slate-300">Stripe payment links are wired into the monthly plans and bulk package buttons.</p>
               <div className="mt-5 space-y-3 text-sm text-slate-300">
-                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-300" /> Stripe payment links</div>
-                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-300" /> Package checkout buttons</div>
-                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-300" /> Custom invoice requests</div>
+                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-300" /> Monthly subscriptions live</div>
+                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-300" /> Bulk packages live</div>
+                <div className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-300" /> Custom quotes by email</div>
               </div>
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-900/70 p-6">
@@ -649,7 +804,7 @@ export default function PrimeMCADataWebsite() {
               <div className="mt-5 space-y-3 text-sm text-slate-300">
                 <div>• Upload your logo</div>
                 <div>• Replace placeholder contact info</div>
-                <div>• Insert real package pricing</div>
+                <div>• Keep Stripe links updated</div>
                 <div>• Add real testimonials or remove them</div>
               </div>
             </div>
@@ -671,7 +826,7 @@ export default function PrimeMCADataWebsite() {
                 <div className="inline-flex items-center gap-2"><Phone className="h-4 w-4" /> {brand.phone}</div>
               </div>
               <div className="mt-4 text-xs leading-6 text-slate-500">
-                Disclaimer: This website is a marketing and inquiry platform for business-purpose data and lead solutions. Any stated pricing, examples, testimonials, and performance language shown here are placeholders unless replaced with your actual business information. Add your official business name, address, contact details, privacy policy, terms, compliance language, and real fulfillment policies before launch.
+                Disclaimer: This website is a marketing and inquiry platform for business-purpose data and lead solutions. All purchases are for business data services. No guarantee of funding outcomes or closing results is made or implied.
               </div>
             </div>
 
